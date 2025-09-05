@@ -1,0 +1,36 @@
+# first install docker community edition
+dnf update
+
+#install docker repo
+sudo dnf config-manager --add-repo https://download.docker.com/linux/rhel/docker-ce.repo
+
+#install docker. start and enable
+sudo dnf install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -ysudo systemctl start docker
+sudo systemctl enable docker
+
+#pull nginx image
+sudo docker pull nginx
+
+#start docker nginx image with port 8080
+sudo docker run -it -d 8080:80 nginx
+
+#to know it works type in address bar
+localhost:8080
+
+#edit nginx index file
+/usr/share/nginx/index.html
+
+#if we want to use index file in the local machine in pwd
+# -v voliume mapping
+# \ split command 
+sudo docker run -d --name mynginx -p 8080:80 \
+    -v $(pwd)/index.html:/usr/share/nginx/html/index.html \
+    nginx
+
+#if webserver is serving important webpage and don’t want to stop use this option  - -restart  unless-stopped
+sudo docker run -d --restart  unless-stopped --name mynginx -p 8080:80     -v $(pwd)/index.html:/usr/share/nginx/html/index.html     nginx
+
+#to create image from this
+sudo docker commit 71d4bcbd55e6 nginx_hello:1.0
+
+

@@ -1,0 +1,17 @@
+## **Containerized WordPress Deployment**
+
+ – Deployed a WordPress CMS with a MariaDB backend using Docker networking and exposed it for browser access through port mapping.
+
+### 🧱 **WordPress Deployment using Docker and MariaDB**
+
+**Description:** Deployed a containerized WordPress application using Docker, connected with a MariaDB backend, and exposed the service for browser access over a local network.
+
+**Key Highlights:**
+
+- Configured **WordPress** and **MariaDB** containers with environment variables and Docker networking.
+- Used **Docker volumes** to persist WordPress and database data.
+- Exposed the application via port mapping and accessed it using host IP.
+- Verified connectivity and accessibility using **netstat** and Docker commands.
+- Demonstrated understanding of **container networking**, **port forwarding**, and **multi-container orchestration**.
+
+**Tools & Technologies:** Docker, WordPress, MariaDB, Linux, Networking
